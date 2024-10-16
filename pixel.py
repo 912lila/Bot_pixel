@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -37,7 +38,15 @@ async def calculadora(ctx, operacion = "", num1 = 0, num2 = 0):
         await ctx.send("Esta calculadora es de matemáticas básicas: + - x ÷")
         return
 
-    await ctx.send(f"El resultado de tu {operacion} es: {resultado}")       
+    await ctx.send(f"El resultado de tu {operacion} es: {resultado}")      
+
+@bot.command()
+async def flip_coin(ctx, flip = ""):
+    flip = random.randint(0,2)
+    if flip == 0:
+        await ctx.send("CARA!!")
+    else:
+        await ctx.send("CRUZ!!")      
 
                 
 
